@@ -219,6 +219,6 @@ if __name__ == "__main__":
                 clas["done"] = True
             if not firsttime:
                 time.sleep(sleeptime)
-        flagtime = False
+        firsttime = False
 
     logging.info("已完成所有工作...\n好好学习，天天向上！！！")
