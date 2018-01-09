@@ -159,7 +159,7 @@ def xk(param):
 
             # 时间冲突
             elif "时间冲突" in r.text:
-                logging.debug("课程" + ' ' + param["kcId"] + ' ' + "时间冲突 ")
+                logging.debug("课程" + ' ' + param["kcId"] + ' ' + "时间冲突")
                 break
 
         except requests.exceptions.Timeout:
