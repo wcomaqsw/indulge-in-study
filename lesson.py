@@ -60,7 +60,7 @@ tparam = {
 
 jwc_ip = "202.115.47.141"
 time_delay = 1
-sleeptime = 2
+sleeptime = 10
 
 # 会话
 s = requests.Session()
@@ -98,7 +98,7 @@ def login(first_flag = False):
         except requests.exceptions.ConnectionError as e:
             logging.info(e)
             logging.info("有可能是教务处宕机了，也有可能没联网...\n请检查网络后，重启程序")
-            time.sleep(1008611)
+            time.sleep(11)
     if first_flag:
         logging.info("登陆成功，开始工作...")
     return 1
@@ -168,7 +168,7 @@ def xk(param):
         except requests.exceptions.ConnectionError as e:
             logging.info(e)
             logging.info("有可能是教务处宕机了，也有可能没联网...\n请检查网络后，重启程序")
-            time.sleep(1)
+            time.sleep(11)
             login()
 
     # 若不成功, 返回0
