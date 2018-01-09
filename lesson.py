@@ -60,7 +60,7 @@ tparam = {
 
 jwc_ip = "202.115.47.141"
 time_delay = 1
-sleeptime = 5
+sleeptime = 2
 
 # 会话
 s = requests.Session()
@@ -157,13 +157,19 @@ def xk(param):
                 return 1
                 break
 
+            # 时间冲突
+            elif "时间冲突" in r.text:
+                logging.info("课程" + ' ' + param["kcId"] + ' ' + "时间冲突 ")
+                break
+
         except requests.exceptions.Timeout:
             logging.info("网络有问题，正在重连...")
             login()
         except requests.exceptions.ConnectionError as e:
             logging.info(e)
             logging.info("有可能是教务处宕机了，也有可能没联网...\n请检查网络后，重启程序")
-            time.sleep(1008611)
+            time.sleep(1)
+            login()
 
     # 若不成功, 返回0
     return 0
@@ -222,3 +228,4 @@ if __name__ == "__main__":
         firsttime = False
 
     logging.info("已完成所有工作...\n好好学习，天天向上！！！")
+
